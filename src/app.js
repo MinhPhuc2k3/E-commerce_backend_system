@@ -14,7 +14,9 @@ app.use(compression())
 // app.use(morgan('tiny'))
 
 //init db
-
+require('./dbs/init.mongodb')
+const {checkOverLoad} = require('./helpers/check.connect')
+checkOverLoad()
 //init routes
 app.get('/',(req, res, next) => {
     const strCompress = "Javascripts"
